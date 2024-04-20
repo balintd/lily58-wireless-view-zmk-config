@@ -17,19 +17,9 @@
             bindings = <&kp KP_NUMBER_0>, <&kp ESC>;
         };
 
-        tap_unless_interrupted_left: tap_unless_interrupted_left {
+        tap_unless_interrupted: tap_unless_interrupted {
             compatible = "zmk,behavior-hold-tap";
-            label = "TAP_UNLESS_INTERRUPTED_LEFT";
-            bindings = <&kp>, <&kp>;
-
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-        };
-
-        tap_unless_interrupted_right: tap_unless_interrupted_right {
-            compatible = "zmk,behavior-hold-tap";
-            label = "TAP_UNLESS_INTERRUPTED_RIGHT";
+            label = "TAP_UNLESS_INTERRUPTED";
             bindings = <&kp>, <&kp>;
 
             #binding-cells = <2>;
@@ -51,11 +41,11 @@
 
             display-name = "Base";
             bindings = <
-&behavior_ESC  &kp N1                                       &kp N2                                       &kp N3                                   &kp N4  &kp N5                             &kp N6         &kp N7  &kp N8                                     &kp N9                                         &kp N0                                                 &kp MINUS
-&kp TAB        &kp Q                                        &kp W                                        &kp E                                    &kp R   &kp T                              &kp Y          &kp U   &kp I                                      &kp O                                          &kp P                                                  &kp EQUAL
-&kp LSHIFT     &tap_unless_interrupted_left LEFT_COMMAND A  &tap_unless_interrupted_left LEFT_CONTROL S  &tap_unless_interrupted_left LEFT_ALT D  &kp F   &kp G                              &kp H          &kp J   &tap_unless_interrupted_right RIGHT_ALT K  &tap_unless_interrupted_right RIGHT_CONTROL L  &tap_unless_interrupted_right RIGHT_COMMAND SEMICOLON  &mt RSHFT SINGLE_QUOTE
-&kp GRAVE      &kp Z                                        &kp X                                        &kp C                                    &kp V   &kp B    &kp LBKT       &kp RBKT   &kp N          &kp M   &kp COMMA                                  &kp DOT                                        &kp FSLH                                               &trans
-                                                                                                         &trans                                   &trans  &kp DEL  &lt 2 SPACE    &lt 1 RET  &kp BACKSPACE  &trans  &trans
+&behavior_ESC  &kp N1                                  &kp N2                                  &kp N3                              &kp N4  &kp N5                             &kp N6         &kp N7  &kp N8                               &kp N9                                   &kp N0                                           &kp MINUS
+&kp TAB        &kp Q                                   &kp W                                   &kp E                               &kp R   &kp T                              &kp Y          &kp U   &kp I                                &kp O                                    &kp P                                            &kp EQUAL
+&kp LSHIFT     &tap_unless_interrupted LEFT_COMMAND A  &tap_unless_interrupted LEFT_CONTROL S  &tap_unless_interrupted LEFT_ALT D  &kp F   &kp G                              &kp H          &kp J   &tap_unless_interrupted RIGHT_ALT K  &tap_unless_interrupted RIGHT_CONTROL L  &tap_unless_interrupted RIGHT_COMMAND SEMICOLON  &mt RSHFT SINGLE_QUOTE
+&kp GRAVE      &kp Z                                   &kp X                                   &kp C                               &kp V   &kp B    &kp LBKT       &kp RBKT   &kp N          &kp M   &kp COMMA                            &kp DOT                                  &kp FSLH                                         &trans
+                                                                                               &trans                              &trans  &kp DEL  &lt 2 SPACE    &lt 1 RET  &kp BACKSPACE  &trans  &trans
             >;
 
             sensor-bindings = <&inc_dec_kp C_VOL_UP C_VOL_DN>;
