@@ -146,6 +146,12 @@ jobs:
         run: west zephyr-export
 
       # ===== Custom Patch Step Inserted Here =====
+      - name: Debug Workspace Path
+        run: |
+          echo "GITHUB_WORKSPACE: ${{ github.workspace }}"
+          echo "Current directory: $(pwd)"
+          ls -la "${{ github.workspace }}"
+
       - name: Apply Custom Patch
         working-directory: ${{ env.base_dir }}/zmk
         run: patch -p1 < "${{ github.workspace }}/patches/custom_art.patch"
