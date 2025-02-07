@@ -148,13 +148,13 @@ jobs:
       # ===== Custom Patch Step Inserted Here =====
       - name: Debug Workspace Path
         run: |
-          echo "GITHUB_WORKSPACE: ${{ github.workspace }}"
+          echo "GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}"
           echo "Current directory: $(pwd)"
-          ls -la "${{ github.workspace }}"
+          ls -la ${GITHUB_WORKSPACE}
 
       - name: Apply Custom Patch
         working-directory: ${{ env.base_dir }}/zmk
-        run: patch -p1 < "${{ github.workspace }}/patches/custom_art.patch"
+        run: patch -p1 < "/${GITHUB_WORKSPACE}/patches/custom_art.patch"
       # ============================================
 
       - name: West Build (${{ env.display_name }})
