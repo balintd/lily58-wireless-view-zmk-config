@@ -145,7 +145,9 @@ jobs:
         working-directory: ${{ env.base_dir }}
         run: west zephyr-export
 
-      # ===== Custom Patch Step Inserted Here =====
+      - name: Install patch utility
+        run: apt-get update && apt-get install -y patch
+
       - name: Debug Workspace Path
         run: |
           echo "GITHUB_WORKSPACE: ${GITHUB_WORKSPACE}"
@@ -155,7 +157,6 @@ jobs:
       - name: Apply Custom Patch
         working-directory: ${{ env.base_dir }}/zmk
         run: patch -p1 < "/${GITHUB_WORKSPACE}/patches/custom_art.patch"
-      # ============================================
 
       - name: West Build (${{ env.display_name }})
         working-directory: ${{ env.base_dir }}
